@@ -1,0 +1,279 @@
+
+<div class="main" ng-controller="encuesta_caCtrl">
+	<div class="content">
+		<center>
+			<img alt="" src="img/logo-login.png">
+		</center>
+	</div>
+
+
+
+	<div class="container">
+		<form name="myForm" novalidate>
+			<input type="hidden" name="cedula" id="cedula" /> <input
+				type="hidden" name="cedulaFamiliar" id="cedulaFamiliar" />
+			<div class="row">
+				<div class="col-sm-12 ">
+
+					<h1 class="text-center login-title">BCV Encuesta Medicamentos
+						Permanentes</h1>
+
+					<div
+						ng-show="myForm.$valid && showValidationMail && data.stRecibirMedicam=='si' && !mensajeOut"
+						class="row">
+						<div class="col-sm-12 ">
+							<span class="input-group-btn">
+								<button class="btn  btn-danger btn-block" ng-click="cancelar()">Regresar</button>
+							</span>
+						</div>
+					</div>
+
+					<div ng-show="mensajeOut">
+						<h1 class="text-center login-title"></h1>
+						<div class="alert alert-success" align="center">
+							<strong>{{mensajeOut}}</strong>
+						</div>
+
+						<button class="btn btn-danger  btn-block" ng-disabled="false"
+							ng-click="regresar()">Regresar</button>
+
+						<div align="center">
+							<div id="chartContainer"></div>
+						</div>
+
+					</div>
+
+					<div ng-hide="mensajeOut">
+
+
+
+
+
+						<div class="account-wall">
+
+
+
+
+							<div class="row">
+
+								<div class="col-xs-12">
+
+									<div class="form-group row"
+										ng-show="benefMedicamentoDto.parametroNominaDtos.length>0 && myForm.$valid && data.stRecibirMedicam!='no'">
+										<div class="row">
+
+
+											<div class="col-xs-12">
+
+												<table class="table">
+													<thead>
+														<tr>
+															<th>#</th>
+															<th>DESCRIPCI&Oacute;N</th>
+															<th>Cantidad</th>
+															<th>Seleccionar</th>
+														</tr>
+													</thead>
+													<tr
+														ng-repeat="item in benefMedicamentoDto.parametroNominaDtos">
+														<td>{{$index + 1}}</td>
+														<td>{{item.tx_parametro_nom}}</td>
+														<td>{{item.cantSolicitada}}</td>
+														<td><input type="checkbox"
+															ng-click="desSeleccionar(item)" ng-model="item.checked">
+													</tr>
+												</table>
+											</div>
+											<div class="col-xs-12">
+												<h3 class="panel-header">Seleccionados (
+													{{incompleteCount()}} )</h3>
+											</div>
+										</div>
+										<div class="row">
+
+											<div class="col-sm-12 ">
+												<button class="btn btn-primary btn-block"
+													ng-show="incompleteCount() >= 1  && myForm.$valid && showValidationMail && data.stRecibirMedicam=='si'"
+													ng-click="loadData()">Enviar</button>
+
+											</div>
+										</div>
+									</div>
+
+									<div class="row"
+										ng-show=" myForm.$valid && showValidationMail && data.stRecibirMedicam=='no'">
+										<div class="col-sm-6 ">
+											<button class="btn btn-danger  btn-block"
+												ng-click="regresar()">Regresar</button>
+										</div>
+										<div class="col-sm-6 ">
+											<button class="btn btn-primary btn-block" ng-disabled="false"
+												ng-click="loadDataNo()">Enviar</button>
+										</div>
+									</div>
+
+
+									<div
+										ng-show="myForm.$valid && showValidationMail && data.stRecibirMedicam=='si'">
+										<div class="form-group">
+											<label></label>
+											<h3 class="text-center login-title">Buscar Medicamento</h3>
+											<h5 class="text-center login-title">{{mensajeMedicDisponiblesOut}}</h5>
+										</div>
+
+										<div class="input-group">
+											<input ng-model="filtro" value="" dl-enter-key
+												class="form-control" /> <span class="input-group-btn">
+												<button class="btn btn-info"
+													ng-click="buscarMedicamento(filtro)">Buscar</button>
+											</span>
+										</div>
+
+										<div class="input-group">
+											<span class="input-group-btn"></span>
+										</div>
+
+
+
+
+
+										<table class="table table-striped"
+											ng-show="benefMedicamentoDisponiblesDto.parametroNominaDtos.length>0">
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>DESCRIPCI&Oacute;N</th>
+													<th>Cantidad</th>
+													<th>Seleccionar</th>
+												</tr>
+											</thead>
+											<tr
+												ng-repeat="item in benefMedicamentoDisponiblesDto.parametroNominaDtos">
+												<td>{{$index + 1}}</td>
+												<td>{{item.tx_parametro_nom}}</td>
+												<td><select ng-model="item.cantSolicitada"
+													ng-options="item for item in cantidades">
+												</select></td>
+
+												<td><input type="checkbox" ng-click="seleccionar(item)"
+													ng-model="item.checked"></td>
+											</tr>
+										</table>
+									</div>
+
+
+									<div ng-hide="myForm.$valid">
+
+										<div class="form-group row">
+											<label for="actionText">C&eacutedula del Trabajador
+												*:</label> <input type="number" dl-enter-key
+												ng-change="cedulaEmpl()" class="form-control"
+												ng-model="data.nuCedula" ng-minlength="5" maxlength="8"
+												placeholder="LLene los datos" required autofocus>
+
+											<div class="alert alert-success"
+												ng-show="userEncuestaDto && userEncuestaDto.nombre">
+												<strong>{{userEncuestaDto.nombre}}</strong>
+												({{userEncuestaDto.tipoEmp}})
+											</div>
+										</div>
+
+										<div ng-show="data.nuCedulaFamiliar">
+
+											<div class="form-group row">
+												<label >Nombre del
+													Familiar Calificado *:</label>
+												<div  class="alert alert-success">
+												
+												<strong>{{data.nombreFamiliar}}  </strong>
+												</div>
+												<label >C&eacute;dula o c&oacute;digo del
+													Familiar Calificado *:</label>
+												<div  class="alert alert-success">
+													<strong>{{data.nuCedulaFamiliar}}  </strong>
+												</div>
+												<div
+													ng-show="medicinas && medicinas.length > 0 &&!otroFamiliar">
+													<button
+														ng-click="generarReporte(data.nuCedula,data.nuCedulaFamiliar)"
+														class="btn btn-default">
+														<input type="image" src="img/pdf.png" alt="download" />
+													</button>
+												</div>
+
+												<div class="checkbox">
+													<label> <input name="sample" type="checkbox"
+														ng-model="otroFamiliar"> Otro Familiar
+													</label>
+												</div>
+												<select ng-show="otroFamiliar" class="form-control"
+													ng-model="fam"  ng-change="cedulaSameFamiliar(fam); personaYaEncuestada();"  
+													ng-options="item as item.nombre  for item in familiares">
+												</select>
+
+
+
+												<div class="alert alert-danger"
+													ng-hide="mensajeEmpleadoErrorOut==''">
+													<strong>{{mensajeEmpleadoErrorOut}}</strong>
+												</div>
+											</div>
+
+
+
+
+											<div ng-hide="otroFamiliar" class="form-group row">
+												<label for="actionText">Correo *:</label> <input
+													type="email" dl-enter-key ng-change="personaYaEncuestada()"
+													maxlength="60" class="form-control" ng-model="data.txEmail"
+													placeholder="LLene los datos" required autofocus>
+											</div>
+
+											<div ng-hide="otroFamiliar" class="form-group row">
+												<label for="actionText">Confirmar el Correo *:</label> <input
+													ng-change="confirmarCorreo()" type="email" dl-enter-key
+													class="form-control" maxlength="60"
+													ng-model="data.coypTxEmail" placeholder="LLene los datos"
+													required autofocus>
+											</div>
+
+											<div class="alert alert-danger" ng-hide="showValidationMail">
+												<strong>Error en !</strong> confirmar correo.
+											</div>
+
+
+											<div ng-hide="otroFamiliar" class="form-group row">
+												<label>&iquest; Est&aacute; interesado en recibir
+													los medicamentos registrados como permanentes (
+													Tratamientos para enfermedades cr&oacute;nicas ) bajo la
+													modalidad de unidosis con cargo a su FRAMO, para usted y/o
+													sus familiares calificados ? * </label> <label> <input
+													type="radio" ng-model="data.stRecibirMedicam" value="si"
+													required> Si
+												</label><br /> <label> <input type="radio" required
+													ng-model="data.stRecibirMedicam" value="no"> No
+												</label><br />
+											</div>
+										</div>
+
+									</div>
+
+
+
+								</div>
+							</div>
+
+
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- /account-container -->
+</div>
+
+

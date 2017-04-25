@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteMei9" pageWidth="767" pageHeight="1008" columnWidth="765" leftMargin="2" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryNewPage="true" isSummaryWithPageHeaderAndFooter="true" uuid="e8a82ec5-210c-4fb3-847d-408354c24cfb">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="245"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["ve/org/bcv/reporte/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nuExtension_1" class="java.lang.String">
+		<fieldDescription><![CDATA[nuExtension_1]]></fieldDescription>
+	</field>
+	<field name="cedula" class="java.lang.String">
+		<fieldDescription><![CDATA[cedula]]></fieldDescription>
+	</field>
+	<field name="tipoEmp" class="java.lang.String">
+		<fieldDescription><![CDATA[tipoEmp]]></fieldDescription>
+	</field>
+	<field name="codigoUbicacion" class="java.lang.String">
+		<fieldDescription><![CDATA[codigoUbicacion]]></fieldDescription>
+	</field>
+	<field name="benefMedicamentos" class="java.util.List">
+		<fieldDescription><![CDATA[benefMedicamentos]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[nombre]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="311" splitType="Stretch">
+			<image>
+				<reportElement x="4" y="0" width="66" height="67" uuid="01e04a59-35be-48d3-809b-d14d120c595f"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement key="staticText" x="66" y="24" width="211" height="10" forecolor="#000000" uuid="0a88a5b5-652a-4ace-bd4a-6c3504630539"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[GERENCIA DE SEGURIDAD Y SALUD EN EL TRABAJO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" x="65" y="35" width="229" height="10" forecolor="#000000" uuid="7687ac5b-6534-4672-9d4d-cff8687f0e7f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[DEPARTAMENTO DE ADMINISTRACIÓN DEL SERVICIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" x="61" y="45" width="201" height="10" forecolor="#000000" uuid="7fd5e8ea-0880-4dad-af39-7ca541f55c9f"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[DE SEGURIDAD Y SALUD EN EL TRABAJO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" x="64" y="14" width="178" height="10" forecolor="#000000" uuid="05d098ee-b78f-4249-8383-fc452e7ffb3b"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[BANCO CENTRAL DE VENEZUELA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="94" width="759" height="20" uuid="f27d3198-dbcc-42d4-8249-7e7cddbdadfb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="16" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[UNIDOSIS. SOLICITUD DE MEDICINAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="570" y="14" width="182" height="41" uuid="5c18b8b4-3387-41e7-9866-b90f95760a32"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[FECHA:_____/_____/_________/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="261" y="130" width="237" height="16" uuid="048e1bdd-be86-407c-b42a-6bf1bd89bb51"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[TRATAMIENTO TEMPORAL Y PERMANENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="186" y="154" width="55" height="20" uuid="d0ddebc5-234d-4415-9e3e-ad7d85a36571"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[ADULTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="245" y="154" width="22" height="20" uuid="c2b81af5-6c52-4eb0-84b7-26649a3a62f5"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="471" y="154" width="70" height="20" uuid="69a0fbfe-0194-43a4-9141-68b2a402ee41"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[PEDIÁTRICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="551" y="154" width="22" height="20" uuid="1b3f04e0-c3e8-4fcf-8d6a-c15c58a43113"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="177" width="526" height="36" uuid="96f8262e-1263-4f22-b44f-a87812d744e0"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[YO AUTORIZO A LA GSSST A DESCONTAR DEL F.R.A.M.O. ASIGNADO A MI GRUPO FAMILIAR LA CANTIDAD CORRESPONDIENTE A LOS MEDICAMENTOS SOLICITADOS POR ESTE MEDIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="241" width="195" height="20" uuid="66f198c3-d5d0-4249-b363-a46dc775fe9c"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="260" width="195" height="20" uuid="76ab54c8-e1b3-4c99-a42c-76470fa9e0fc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[FIRMA DEL TRABAJADOR]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="47" splitType="Stretch">
+			<subreport>
+				<reportElement x="-2" y="37" width="765" height="10" uuid="53b2bf67-80b6-4d96-bade-487ac25e794c"/>
+				<subreportParameter name="logo"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{benefMedicamentos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "reporteMedicamentos2_2.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="10" y="14" width="371" height="23" uuid="c0443e90-d997-409f-b578-74b865370cb2"/>
+				<box>
+					<leftPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="14" width="117" height="23" uuid="fb455406-f756-4ac7-8880-f1f6a3bd61fd"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="498" y="14" width="165" height="23" uuid="329fcda7-3b38-44c6-a471-1c6aaa12c6ae"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigoUbicacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="663" y="14" width="91" height="23" uuid="7656b8ee-0344-4cf8-94c6-82e4d6ca4962"/>
+				<box>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nuExtension_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="381" height="14" uuid="7bab154f-ec91-48a5-93f1-1be88dabdfc0"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE Y APELLIDO DEL EMPLEADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="663" y="0" width="91" height="14" uuid="0d9fdb6c-0ba4-434c-bf34-27b1fd75c57d"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXTENSIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="498" y="0" width="165" height="14" uuid="96cc43d2-048d-44e6-94ef-a773ec6cf52c"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGO UNIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="381" y="0" width="117" height="14" uuid="8b58a526-292e-4a11-ada2-e7ad918d0840"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEDULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="14" width="60" height="23" uuid="92f0d2c8-d3c3-47df-9e96-16b6ed4f5a39"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="85">
+			<staticText>
+				<reportElement key="staticText" x="0" y="0" width="381" height="54" forecolor="#000000" uuid="da4eba5b-8022-4196-bd3a-6453372fc604"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="11"/>
+				</textElement>
+				<text><![CDATA[    FIRMA DEL EMPLEADO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" x="381" y="0" width="374" height="54" forecolor="#000000" uuid="943ff742-8ace-475b-925b-57835af8ddf6"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="11"/>
+				</textElement>
+				<text><![CDATA[    FIRMA DEL OPERADOR DE TAQUILLA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="54" width="349" height="20" uuid="a975d0df-0900-4c4a-bd35-a3816875de06"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOTA: ANEXAR COPIA DE : RECIPE E INDICACIONES]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>
